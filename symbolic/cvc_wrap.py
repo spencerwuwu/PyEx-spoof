@@ -46,16 +46,6 @@ class CVCWrapper(object):
     def _findModel(self):
         self.solver.push()
         exprbuilder = ExprBuilder(self.asserts, self.query, self.solver)
-        """
-        for (name, cvc_var) in exprbuilder.cvc_vars.items():
-            if isinstance(cvc_var, CVCString):
-                print("PRINT: (declare-fun " + name + " () String)")
-            elif isinstance(cvc_var, CVCInteger):
-                print("PRINT: (declare-fun " + name + " () Int)")
-        print("PRINT: (assert " + exprbuilder.query.cvc_expr.toString() + " )")
-        print("PRINT: (check-sat)")
-        print("PRINT: END")
-        """
         print("FORMULA: (assert " + exprbuilder.query.cvc_expr.toString() + " )")
         self.solver.assertFormula(exprbuilder.query.cvc_expr)
         model = None

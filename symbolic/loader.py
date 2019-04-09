@@ -7,14 +7,6 @@ from importlib.machinery import SourceFileLoader
 
 from symbolic.symbolic_types import SymbolicType, SymbolicInteger, getSymbolic, SymbolicStr
 
-# The built-in definition of len wraps the return value in an int() constructor, destroying any symbolic types.
-# By redefining len here we can preserve symbolic integer types.
-import builtins
-
-builtins.len = (lambda x: x.__len__())
-builtins.abs = (lambda x: x if x > 0 else x * -1)
-builtins.hash = (lambda x: x.__hash__())
-
 class FunctionInvocation:
     def __init__(self, function, name, reset):
         self.function = function
@@ -70,9 +62,6 @@ class Loader:
 
     def _initializeArgumentSymbolic(self, inv: FunctionInvocation, f: str, val, st: SymbolicType):
         inv.addArgumentConstructor(f, val, lambda n, v: st(n, v))
-
-    def execution_complete(self, return_vals):
-        print("{}.py execution complete.".format(self.modulename))
 
 class FunctionLoader(Loader):
     def createInvocation(self):
