@@ -1,5 +1,7 @@
 # PyEx-spoof
 
+[Guide](https://paper.dropbox.com/doc/PyEx-spoof-Code-Guide--Aa88M4uU8IGwU3DL02yqrvhQAQ-conpGEMq7NQzYpHddeXma)
+
 An clean code to demonstrate python concolic testing.   
 Support integer and string operations.
 
@@ -13,4 +15,4 @@ Support integer and string operations.
 $ ./pyex-spoof.py TARGETFILE
 ```
 
-Original: [PyExZ3](https://github.com/GroundPound/PyExZ3)
+Origin: [PyExZ3](https://github.com/GroundPound/PyExZ3)
