@@ -8,6 +8,7 @@ from queue import PriorityQueue
 from sys import exc_info, platform
 
 import coverage
+import traceback
 
 from .path_to_constraint import PathToConstraint
 from .symbolic_types import symbolic_type, SymbolicType

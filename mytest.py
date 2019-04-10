@@ -1,6 +1,7 @@
-#from symbolic.args import symbolic
+from symbolic.args import symbolic, concrete
 
-#@symbolic(in1="foo", in2="cccdd")
+#@symbolic(in1=1)
+#@concrete(in2=2)
 def mytest(in1, in2):
     if in1 ==  0:
         in1 = in1 + 3

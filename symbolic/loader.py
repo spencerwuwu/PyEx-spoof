@@ -70,6 +70,7 @@ class FunctionLoader(Loader):
         argspec = inspect.getargspec(func)
         # check to see if user specified initial values of arguments
         if "concrete_args" in func.__dict__:
+            print("Parsing concrete args")
             for (f, v) in func.concrete_args.items():
                 if not f in argspec.args:
                     print("Error in @concrete: " + self.entrypoint + " has no argument named " + f)
@@ -77,6 +78,7 @@ class FunctionLoader(Loader):
                 else:
                     self._initializeArgumentConcrete(inv, f, v)
         if "symbolic_args" in func.__dict__:
+            print("Parsing symbolic args")
             for (f, v) in func.symbolic_args.items():
                 if not f in argspec.args:
                     print("Error (@symbolic): " + self.entrypoint + " has no argument named " + f)
